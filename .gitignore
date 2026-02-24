@@ -1,4 +1,113 @@
-venv
-notebooks_curso
-slides
-variaveis_ambiente
+
+notebooks_curso/
+slides/
+variaveis_ambiente/
+
+# ===============================
+# Python
+# ===============================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+pip-wheel-metadata/
+
+# Virtual Environment
+venv/
+.venv/
+env/
+ENV/
+
+# ===============================
+# Jupyter Notebook
+# ===============================
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# ===============================
+# PySpark / Spark
+# ===============================
+metastore_db/
+spark-warehouse/
+derby.log
+
+# Spark temporary directories
+tmp/
+temp/
+C:/tmp/
+C:/tmp/spark/
+C:/tmp/hive/
+
+# ===============================
+# Hadoop / Winutils
+# ===============================
+hadoop/
+*.crc
+
+# ===============================
+# VS Code
+# ===============================
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# ===============================
+# Environment variables
+# ===============================
+.env
+.env.*
+*.env
+
+# ===============================
+# Logs
+# ===============================
+logs/
+*.log
+
+# ===============================
+# OS Files
+# ===============================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===============================
+# Testing / Coverage
+# ===============================
+.coverage
+htmlcov/
+.pytest_cache/
+
+# ===============================
+# Data Files (adjust as needed)
+# ===============================
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# ===============================
+# Parquet / Delta / Output Files
+# ===============================
+*.parquet
+*.delta
+*.snappy
+*.orc
+*.csv
+*.json
+
+# ===============================
+# IDE / Misc
+# ===============================
+.idea/
+*.iml
+
+# ===============================
+# Spark UI temp
+# ===============================
+spark-events/
