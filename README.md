@@ -235,3 +235,46 @@ print("SPARK_HOME:", os.getenv("SPARK_HOME"))
 print("HADOOP_HOME:", os.getenv("HADOOP_HOME"))  
 
 ---
+
+# 📓 Notebooks
+
+A pasta `notebooks/` contém os notebooks utilizados durante o curso para demonstrar os principais conceitos do PySpark.  
+Cada arquivo segue a mesma estrutura: cria (ou reutiliza) uma `SparkSession`, executa alguns exemplos e, ao final, encerra a sessão.
+
+| Notebook | Objetivo / Conteúdo |
+|----------|---------------------|
+| **script1_rdd.ipynb** | **Introdução a RDDs** <br>– cria `SparkSession` e `SparkContext`;<br>– paraleliza listas; conta, coleta e imprime dados;<br>– lê arquivo CSV (`../data/food_coded.csv`) como RDD e faz operações `first()`, `count()` etc.;<br>– salva fragmentos em `../output/`.<br>É o ponto de partida para entender a API RDD. |
+| **script2_rdd_text_miner.ipynb** | **Text mining com RDDs** <br>– carrega um texto (regiões Norte/Sul) em um RDD;<br>– separa palavras (`flatMap`, `split`), normaliza (`lower`), filtra *stopwords*;<br>– conta ocorrências (`map`/`reduceByKey`);<br>– imprime resultado ordenado; `<br>– mostra `toDebugString()` do plano. |
+| **script3_rdd_joins.ipynb** | **Operações de join em RDDs** <br>– dois arquivos com dados (profissionais e salários);<br>– transforma em pares `(chave, valor)`;<br>– executa `join`, `leftOuterJoin`, `rightOuterJoin`, etc.;<br>– demonstra coleta de resultados. |
+| **script4_dataframe.ipynb** | **Introdução a DataFrames** <br>– cria DataFrame simples (cidade, população, time, data);<br>– mostra `show()`, `printSchema()`, `describe()`; <br>– operações de seleção, filtro, `withColumn` usando funções (`upper`);<br>– exemplifica agregações e coleta. |
+| **script5_dataframe_arquivos.ipynb** | **Leitura e limpeza de CSV em DataFrame** <br>– lê `../data/food_coded.csv` com `header=true`; <br>– examina schema, mostra primeiras linhas;<br>– filtra valores inconsistentes (`none`, `nan`);<br>– exemplos de agrupamentos, agregações e transformações diversas;<br>– encerra o `spark.stop()` no final. |
+| **script6_sparksql.ipynb** | **Spark SQL** <br>– registra DataFrames como views temporárias;<br>– executa consultas SQL (incluindo joins, `group by` etc.);<br>– apresenta resultados em tabelas HTML renderizadas pelo notebook. |
+| **script7_json_sql.ipynb** | **JSON + SQL** <br>– carrega arquivo JSON de sentimentos (`../data/sentimento.json`);<br>– inspeciona schema com `printSchema()`;<br>– explode/seleciona campos aninhados (`qas`, `id`, `question`);<br>– cria temp view e filtra registros negativos. |
+| **script8_streaming.ipynb** | **Spark Streaming clássico** <br>– demontra leitura de socket TCP na porta 9999;<br>– configura `StreamingContext` e processa linhas em tempo real;<br>– exibe resultados e discute configuração da fonte (nc/ncat). |
+| **script9_streaming_structured.ipynb** | **Structured Streaming** <br>– prepara `SparkSession` (separado da criação no cell 9);<br>– define stream de socket → transforma linhas em palavras (`explode`/`split`);<br>– conta palavras de forma contínua e grava em **memory sink** (`queryName("wc")`);<br>– run/visualiza query periodicamente, mostra como parar as queries ativas.<br>– checklist final de funcionamento (nc rodando, notebooks executados). |
+| **teste_ambiente.ipynb** | **Validações e ajustes do SparkSession** <br>– constrói sessão com várias configurações (UI, dirs temporários, paralelismo, limites de memória);<br>– imprime variáveis de ambiente (`JAVA_HOME`, `SPARK_HOME`, …) e versão do Spark;<br>– executa um pequeno job (`spark.range(10).show()`);<br>– visualiza `sparkContext.uiWebUrl` e faz testes de UI;– encerra com `spark.stop()`. |
+
+> ⚠ **Nota:** os notebooks foram criados com kernel **PySpark (venv)** e dependem das pastas `data/` e `output/` no nível raiz.
+
+## Como usar
+
+1. Crie e ative o ambiente virtual conforme descrito no README principal.
+2. Registre o kernel Jupyter (`python -m ipykernel install …`).
+3. Abra o notebook desejado no VS Code e execute as células sequencialmente.
+4. Para os exemplos de streaming (portas TCP 9999) use `nc -lk 9999` no terminal (WSL/MobaXterm).
+
+## Estrutura dos notebooks
+
+Cada notebook contém:
+
+- **Markdown** com explicações e objetivos.
+- **Células de código** que importam `pyspark.sql.SparkSession` ou `pyspark.streaming.StreamingContext`.
+- Várias leituras de arquivo em `../data/` ou uso de coleções internas.
+- Exibições (`show()`, prints) dos resultados no notebook.
+- Comentários em Português explicando os passos.
+- Finalização com `spark.stop()` quando apropriado.
+
+---
+
+Esse README serve tanto como roteiro de estudo quanto como documentação do que cada notebook faz.  
+Basta navegar pelos arquivos na pasta e consultá‑los para executar ou adaptar os exemplos ao seu próprio uso.
