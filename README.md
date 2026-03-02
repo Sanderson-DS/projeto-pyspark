@@ -1,4 +1,16 @@
 
+![banner](https://github.com/user-attachments/assets/da17a009-03f2-4605-a971-6a735277f96c)
+
+## Tech Stack
+## Tech Stack
+
+[![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)](https://www.python.org/)  
+[![Apache Spark](https://img.shields.io/badge/Apache%20Spark-E25A1C?logo=apachespark&logoColor=white)](https://spark.apache.org/)  
+[![PySpark](https://img.shields.io/badge/PySpark-282C34?logo=apache%20spark&logoColor=white)](https://spark.apache.org/docs/latest/api/python/)  
+[![Spark Streaming](https://img.shields.io/badge/Spark%20Streaming-E25A1C?logo=apachespark&logoColor=white)](https://spark.apache.org/docs/latest/streaming-programming-guide.html)  
+[![Jupyter](https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white)](https://jupyter.org/)
+
+
 # 🧠 Projeto PySpark — Ambiente Local (Windows)
 
 Este projeto utiliza Apache Spark + PySpark + Jupyter Notebook + VS Code em ambiente local no Windows.
