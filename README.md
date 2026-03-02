@@ -2,7 +2,6 @@
 ![banner](https://github.com/user-attachments/assets/da17a009-03f2-4605-a971-6a735277f96c)
 
 ## Tech Stack
-## Tech Stack
 
 [![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)](https://www.python.org/)  
 [![Apache Spark](https://img.shields.io/badge/Apache%20Spark-E25A1C?logo=apachespark&logoColor=white)](https://spark.apache.org/)  
