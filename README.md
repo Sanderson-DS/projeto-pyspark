@@ -10,7 +10,28 @@
 [![Jupyter](https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white)](https://jupyter.org/)
 
 
-# 🧠 Projeto PySpark — Ambiente Local (Windows)
+# PySpark - Construção de projetos de dados no Spark - Ambiente Local (Windows)
+
+**Resumo do projeto**
+
+Este repositório reúne os notebooks e scripts utilizados em projetos de dados contruidos em Spark utilizando Python”.  
+
+O objetivo é oferecer um laboratório prático de conceitos fundamentais do ecossistema Apache Spark:  
+criação e manipulação de RDDs, DataFrames/DataSets, consultas SQL, leitura/gravação de arquivos CSV/JSON,  
+e processamento em lote e em streaming (clássico e estruturado).
+
+Cada exemplo foi desenvolvido em Python sobre um ambiente virtual mínimo, usando o kernel
+**PySpark (venv)** do Jupyter; os dados de entrada ficam na pasta `data/` e os resultados
+são colocados em `output/`.
+
+O repositório está estruturado em:
+
+* `notebooks/` – arquivos `.ipynb` com passo‑a‑passo comentado;  
+* `data/` – amostras de CSV/JSON utilizadas nos exemplos;  
+* `requirements.txt` e instruções de instalação no próprio README.
+
+Basta criar/ativar o ambiente virtual conforme descrito abaixo, abrir o notebook desejado
+no VS Code e executar as células para seguir o roteiro de estudos.
 
 Este projeto utiliza Apache Spark + PySpark + Jupyter Notebook + VS Code em ambiente local no Windows.
 
@@ -18,7 +39,7 @@ Este guia documenta a configuração completa das ferramentas para desenvolvimen
 
 ---
 
-# 📦 Pré-requisitos
+# Pré-requisitos
 
 - Windows 10/11
 - Python 3.11+
@@ -29,7 +50,7 @@ Este guia documenta a configuração completa das ferramentas para desenvolvimen
 
 ---
 
-# ☕ 1) Instalação do JDK (Java)
+# 1) Instalação do JDK (Java)
 
 1. Instale o JDK (exemplo):
    C:\Java\jdk-25.0.2
@@ -48,7 +69,7 @@ java -version
 
 ---
 
-# ⚡ 2) Instalação do Apache Spark
+# 2) Instalação do Apache Spark
 
 1. Extraia o Spark em:
 C:\Spark
@@ -68,7 +89,7 @@ spark-submit --version
 
 ---
 
-# 🐘 3) Hadoop (Winutils) para Windows
+# 3) Hadoop (Winutils) para Windows
 
 Necessário para evitar erros de permissão no Windows ao usar Spark.
 
@@ -106,7 +127,7 @@ C:\hadoop\bin\winutils.exe chmod -R 777 C:\tmp\spark
 
 ---
 
-# 🐍 4) Criar Ambiente Virtual (venv)
+# 4) Criar Ambiente Virtual (venv)
 
 Dentro da pasta do projeto:
 
@@ -127,7 +148,7 @@ python -m ipykernel install --user --name "pyspark-venv" --display-name "PySpark
 
 ---
 
-# 🧩 5) Configurar VS Code (.env)
+# 5) Configurar VS Code (.env)
 
 Criar arquivo .env na raiz do projeto:
 
@@ -150,7 +171,7 @@ PySpark (venv)
 
 ---
 
-# 🚀 6) Configuração Recomendada do SparkSession (Windows-safe)
+# 6) Configuração Recomendada do SparkSession (Windows-safe)
 
 Utilize esta configuração base nos notebooks:
 
@@ -195,7 +216,7 @@ http://127.0.0.1:4042
 
 ---
 
-# 🧪 Teste de Job (gera Jobs/Stages)
+# Teste de Job (gera Jobs/Stages)
 
 df = spark.range(0, 20000000).repartition(16)  
 df.groupBy((df.id % 1000).alias("k")).count().count()  
@@ -207,7 +228,7 @@ df.groupBy((df.id % 1000).alias("k")).count().count()
 
 ---
 
-# 🛑 Encerrar Sessão
+# Encerrar Sessão
 
 spark.stop()
 
